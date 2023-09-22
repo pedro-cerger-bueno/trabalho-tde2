@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+
+float f(float x) {
+    return x * x - 5;
+}
+
+float g(float x) {
+    return x + 4;
+}
+
+
+float gef(float x) {
+    float f1 = f(x);
+    float g1 = g(f1);
+    return g1;
+}
+
+
+float geg(float x) {
+    float g1 = g(x);
+    float g2 = g(g1);
+    return g2;
+}
+float fef(float x) {
+    float f1 = f(x);
+    float f2 = f(f1);
+    return f2;
+}
+
+
+float feg(float x) {
+    float g1 = g(x);
+    float f1 = f(g1);
+    return f1;
+}
+
+int main() {
+    float x; 
+    printf("Digite um valor x: ");
+    scanf("%f", &x);
+
+    printf("(g e f)(%.2f) = %.2f\n", x, gef(x));
+    printf("(g e g)(%.2f) = %.2f\n", x, geg(x));
+    printf("(f e f)(%.2f) = %.2f\n", x, fef(x));
+    printf("(f e g)(%.2f) = %.2f\n", x, feg(x));
+
+    return 0;
+}
